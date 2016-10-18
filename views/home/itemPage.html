@@ -1,0 +1,33 @@
+<ion-view class="item-page">
+	
+	<ion-nav-bar class="assertive">
+		<ion-nav-back-button></ion-nav-back-button>
+	</ion-nav-bar>
+	<ion-nav-title>{{title}}</ion-nav-title>
+	
+	<ion-content class="item-content" scroll="true">
+		<div class="item-box">
+			<div class="home-time">
+				<i class="icon ion-ios-clock-outline"> 距离结束时间 : </i>
+				<span ng-bind="endHour"></span> :
+				<span ng-bind="endMin"></span> :
+				<span ng-bind="endSec"></span>
+			</div>
+			
+			<div class="item-wrapper" ng-repeat="item in items" ng-click="goodsInfo(item.open_id, item.original_price, item.discount)">
+				<img ng-src="{{item.picture}}"/>
+				<div class="item-news">
+					<div class="item-title">
+						{{item.name}}
+					</div>
+					<div class="item-price">
+						<span>￥{{(item.original_price*0.1*(item.discount|limitTo:3))|limitTo:5}}</span>
+						<span>￥{{item.original_price}}</span>
+						<span>{{item.promotion_text_arr[0]}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+	
+</ion-view>

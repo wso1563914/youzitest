@@ -1,0 +1,26 @@
+<div class="login-top registerAndlogin-top">
+	<p>第三方无需注册，直接点击登录</p>
+	<div class="other-login other-registerAndlogin">
+		<div><a href="javascript:;"><i class="icon ion-social-tux"></i>QQ账号</a></div>
+		<div><a href="javascript:;"><i class="icon ion-social-twitch"></i>微信账号</a></div>
+		<div><a href="javascript:;"><i class="icon ion-social-octocat"></i>微博账号</a></div>
+	</div>
+	<p>其他登录</p>
+</div>
+<div class="list login-bottom registerAndlogin-bottom">
+	<h3 class="check">{{check}}</h3>
+	<label class="item item-input">
+    	<span class="input-label">用户名</span>
+    	<input type="text" placeholder="邮箱/手机号码/美柚账号" ng-model="username">
+	</label>
+	<label class="item item-input">
+    	<span class="input-label">密 码</span>
+    	<input type="password" placeholder="密码" ng-model="password">
+    </label>
+</div>
+<span class="loginBut button button-block" ng-click="loginBut(username,password)">登录</span>
+
+<div class="hg-login">
+	<a href="javascript:;">海外手机登录</a>
+	<a href="javascript:;">找回账号或密码</a>
+</div>

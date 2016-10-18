@@ -1,0 +1,65 @@
+
+<div class="order-wrap">
+<ion-slide-box on-slide-changed="sliding($index)">
+	<ion-slide>
+		<ion-list ng-repeat="storeItem in carList">
+			<h3>
+				<label class="checkbox">
+				    <input type="checkbox" checked="" ng-model="storeChecked[$index]" ng-init="p_index=$index" ng-click="CheckedBut($index)">
+				</label>
+				<img ng-src="{{storeItem.shopIcon}}">
+				{{storeItem.shopName}}{{flagCheced}}
+			</h3>
+			<ion-item ng-repeat="item in storeItem.goodsInfo">
+				<label class="checkbox">
+				    <input type="checkbox" checked="" ng-model="goodsChecked[p_index][$index]" ng-click="goodsCheckedBut(p_index)">
+				</label>
+				<img ng-src="{{item.goodsImgUrl}}">
+				<P>{{item.goodsName}}</P>
+				<p>{{item.description}}</p>
+				<div>
+					<span>{{item.Price | currency:'￥'}}</span>
+					<span>数量:{{item.number}}</span>
+				</div>
+				<p>套餐:{{item.color}}</p>
+			</ion-item>
+		</ion-list>
+	</ion-slide>
+	<ion-slide>
+		<ion-list ng-repeat="storeItem in NotPayList" show-delete="true">
+			<h3>
+				<img ng-src="{{storeItem.shopIcon}}">
+				{{storeItem.shopName}}{{flagCheced}}
+			</h3>
+			<ion-item ng-repeat="item in storeItem.goodsInfo">
+				<img ng-src="{{item.goodsImgUrl}}">
+				<P>{{item.goodsName}}</P>
+				<p>{{item.description}}</p>
+				<div>
+					<span>{{item.Price | currency:'￥'}}</span>
+					<span>数量:{{item.number}}</span>
+				</div>
+				<p>套餐:{{item.color}}</p>
+			</ion-item>
+		</ion-list>
+	</ion-slide>
+	<ion-slide>
+		<ion-list ng-repeat="storeItem in AllGoodsList" show-delete="true">
+			<h3>
+				<img ng-src="{{storeItem.shopIcon}}">
+				{{storeItem.shopName}}{{flagCheced}}
+			</h3>
+			<ion-item ng-repeat="item in storeItem.goodsInfo">
+				<img ng-src="{{item.goodsImgUrl}}">
+				<P>{{item.goodsName}}</P>
+				<p>{{item.description}}</p>
+				<div>
+					<span>{{item.Price | currency:'￥'}}</span>
+					<span>数量:{{item.number}}</span>
+				</div>
+				<p>套餐:{{item.color}}</p>
+			</ion-item>
+		</ion-list>
+	</ion-slide>
+</ion-slide-box>
+</div>

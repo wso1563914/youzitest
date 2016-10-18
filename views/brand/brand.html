@@ -1,0 +1,30 @@
+<ion-view title="品牌特卖">
+
+
+    <ion-content id="brand">
+        
+        <!-- 下拉刷新 -->
+                
+        <ion-refresher on-refresh="refresh()" spinner="bubbles" >
+        </ion-refresher>
+
+        <div class="brand-t">
+            <div class="brand-top">{{topData}}</div>
+
+            <div class="brand-list" collection-repeat="item in listData">
+                <div class="img">
+                    <img ng-src="{{item.img}}"/>
+                </div>
+                <span>{{item.name}}</span>
+                <span>{{item.ntitle}}</span>
+                <span>{{item.itemt}}</span>
+                
+            </div>
+        </div>
+        <ion-infinite-scroll on-infinite="loadMore()" distance="1%"  immediate-check="false" ng-if="canLoadMore" spinner="bubbles">
+        </ion-infinite-scroll>
+               
+    </ion-content>
+
+
+</ion-view>

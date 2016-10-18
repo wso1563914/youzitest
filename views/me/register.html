@@ -1,0 +1,26 @@
+<div class="register-top registerAndlogin-top">
+	<p>第三方无需注册，直接点击登录</p>
+	<div class="other-register other-registerAndlogin">
+		<div><a href="javascript:;"><i class="icon ion-social-tux"></i>QQ账号</a></div>
+		<div><a href="javascript:;"><i class="icon ion-social-twitch"></i>微信账号</a></div>
+		<div><a href="javascript:;"><i class="icon ion-social-octocat"></i>微博账号</a></div>
+	</div>
+	<p>手机注册</p>
+</div>
+<div class="list register-bottom registerAndlogin-bottom">
+	<h3 class="check" ng-show="username!=''||password!=''||passwordA!=''">{{check}}</h3>
+	<label class="item item-input">
+    	<span class="input-label">用户名</span>
+    	<input type="text" placeholder="邮箱/手机号码/美柚账号" ng-model="username" ng-keyup="usernameCheck(username)">
+	</label>
+	<label class="item item-input">
+		<span class="input-label">密码</span>
+    	<input type="password" placeholder="密码" ng-model="password" ng-keyup="passwordCheck(password)">
+    </label>
+    <label class="item item-input">
+		<span class="input-label">再次输入密码</span>
+    	<input type="password" placeholder="再次输入密码" ng-model="passwordA" ng-keyup="passwordACheck(password,passwordA)">
+    </label>
+</div>
+<p class="agreement">点击“注册”即同意<span>《柚子街用户使用协议》</span></p>
+<span class="button button-block registerBut" ng-click="registerBut(username,password)">注册</span>

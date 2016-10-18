@@ -1,0 +1,93 @@
+<ion-view>
+	<ion-nav-buttons side="left">
+		<button class="button button-clear icon ion-navicon home-left-button" ng-click="toggleLeftSideMenu()"></button>
+	</ion-nav-buttons>
+	<ion-nav-title>柚子街</ion-nav-title>
+	<ion-nav-buttons side="right">
+		<button class="button button-clear home-right-button">签到<i class="ion-android-create"></i></button>
+	</ion-nav-buttons>
+	
+	<ion-side-menus class="menus-content" edge-drag-threshold="true">
+		<!--中间内容区-->
+		<ion-side-menu-content>
+			<!--内容区-->
+			<ion-content>
+					<ion-scroll delegate-handle="homeContent" scrollbar-y="false" class="content-wrapper">
+						<!--下拉刷新-->
+						<ion-refresher on-refresh="refresh()" spinner="bubbles" pulling-icon=""></ion-refresher>
+						
+						<div>
+							<div class="top-wrapper" ng-if="homeIndex">	
+								<!--轮播图-->
+								<ion-slide-box does-continue="true" auto-play="true">
+									<ion-slide ng-repeat="banner in bannerList" class="banner">
+										<img ng-src="{{banner.image_url}}"/>
+									</ion-slide>
+								</ion-slide-box>
+								
+								<!--二级导航栏-->
+								<div class="secondNav-wrapper">
+									<div ng-repeat="secondNav in secondNavList">
+										<img ng-src="{{secondNav.picture}}"/>
+										<p>{{secondNav.name}}</p>
+									</div>
+								</div>
+								
+								<div class="news">
+									<i class="icon ion-ios-heart"></i>
+									<span>{{dayNews[0]}}</span>
+								</div>
+							</div>
+							
+							<div class="list-wrapper" ng-repeat="page in items">
+								<ion-list class="home-list" ng-if="$index == navSelect">
+									<ion-item ng-repeat="homeList in homeLists" ng-click="itemPage(homeList.brand_area_id)">
+										<div class="goods-wrapper">
+											<img ng-src="{{homeList.picture}}"/>
+											<div class="goods-news">
+												<div class="title">
+													<i>今日</i>
+													{{homeList.name}}
+												</div>
+												<div class="price">
+													<i>￥{{homeList.vip_price}}</i>
+													<i>{{homeList.promotion_text_arr[0]}}</i>
+												</div>
+												<div class="bottom">
+													<i>￥{{homeList.original_price}}</i>
+													<i>{{homeList.purchase_btn}}</i>
+												</div>
+											</div>
+										</div>
+									</ion-item>
+								</ion-list>
+							</div>
+						</div>
+						
+						<!--上拉加载更多-->
+						<ion-infinite-scroll on-infinite="infinite()" spinner="bubbles" 
+immediate-check="false" ng-if="canLoadMore"></ion-infinite-scroll>
+					</ion-scroll>
+					
+				
+			</ion-content>
+			
+	    </ion-side-menu-content>
+		
+		<!--左侧导航栏-->
+		<ion-side-menu side="left" width="200"> 
+			
+			<ion-scroll delegate-handle="homeSideNav" scrollbar-y="false" class="side-left">
+				<span ng-repeat="item in items" class="homeNav" ng-click="navAction($index, item.id)">
+					<div class="homeNav-wrapper">
+						<img ng-src="{{item.icon}}" class="navImg"/>
+						<b ng-class="{'active': $index == navSelect}">{{item.name}}</b>
+					</div>
+				</span>
+			</ion-scroll>
+			
+		</ion-side-menu>
+			
+	</ion-side-menus>
+	
+</ion-view>

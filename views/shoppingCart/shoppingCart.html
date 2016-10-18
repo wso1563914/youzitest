@@ -1,0 +1,54 @@
+<ion-view title="购物车">
+
+    <ion-content id="cartbody">
+        <!-- 店铺 -->
+        <ion-list ng-repeat="list in shops" class="cart-list">
+            <div class="cart-title">
+                <ion-checkbox ng-model="list.checked" class="title-ckb" ng-change="listChange(list)"></ion-checkbox>
+                <img class="shopicon" ng-src="{{list.shopIcon}}" alt="">
+                <span class="list-shopname">{{list.shopName}} ></span>
+                <div class="congifbtns">
+                    <button class="bj" ng-click="bjActive($index, list)">编辑</button>
+                </div>
+            </div>
+            <!-- 商品 -->
+            <ion-item ng-repeat="item in list.goodsInfo" ng-init="item.checked==false" class="item item-thumbnail-left goodsItem">
+                <img ng-src="{{item.goodsImgUrl}}">
+
+                <div class="d">
+                    <ion-checkbox class="ckb" ng-init="item.checked==false" ng-model="item.checked" ng-change="list.checked" ng-click="itemChange(item, list)" ></ion-checkbox>
+                </div>
+                <div class="word-info" ng-if="list.isBj==false">
+                    <p class="cart-goodsName">{{item.goodsName}}</p>
+                    <p class="cart-description">{{item.description}}</p>
+                    <p class="cart-prices"><span class="nowPrice">{{item.nowPrice | currency:"￥"}}</span> <span class="oldPrice">{{item.oldPrice | currency:"￥"}}</span> <span class="goods-num">x{{item.number}}</span></p>
+                </div>
+                <div class="bjbox" ng-if="list.isBj">
+                    <div class="numberbj">
+                        <button class="minusbtn" ng-click="minus(item)" >-</button>
+                        <span class="number">{{item.number}}</span>
+                        <button class="plusbtn" ng-click="plus(item)">+</button>
+                    </div>
+                    <div class="pic-color" ng-click="picColorAction(item)">
+                        <p>颜色类型: {{item.color[item.fenSelect] || item.picColor}}</p>
+                        <i class="icon ion-chevron-down"></i>
+                    </div>
+                    <button class="ite-remove-btn" ng-click="itemRemove(list, $index)">删除</button>
+                </div>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+    <ion-content id="chargebody">
+        <div class="chargebox">
+            <div>
+                <div class="quanx"><ion-checkbox class="title-ckb charge-ckb" ng-model="qckh.checked" ng-click="selectedAll()"></ion-checkbox><b>全选</b></div>
+                <div class="hjbox">
+                    <p>合计:<span class="heji">{{ sumP | currency: "￥"}}</span></p>
+                    <p class="yunfei">不含运费</p>
+                </div>
+            </div>
+            <a class="charge" href="#">结算 <i class="sum-num">(0)</i></a>
+        </div>
+    </ion-content>
+</ion-view>

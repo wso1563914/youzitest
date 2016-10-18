@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, width=device-width, user-scalable=no">
+	<title>柚子街</title>
+	<link rel="stylesheet" type="text/css" href="css/public.css">
+	<link rel="stylesheet" type="text/css" href="lib/ionic/css/ionic.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+	<link rel="stylesheet" href="css/shoppingcart.css">
+	<link rel="stylesheet" type="text/css" href="css/me.css">
+	<link rel="stylesheet" href="css/brand.css" />
+	<link rel="stylesheet" type="text/css" href="css/friends.css" />
+	<script type="text/javascript" src="lib/ionic/js/ionic.bundle.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script src="js/shoppingCart/cartService.js"></script>
+	<script src="js/shoppingCart/cartCtrl.js"></script>
+	<script type="text/javascript" src="js/friends/controller/firendsController.js"></script>
+	<script type="text/javascript" src="js/friends/service/friendsService.js"></script>
+	<script type="text/javascript" src="js/me/meService.js"></script>
+	<script type="text/javascript" src="js/me/meCtrl.js"></script>
+	<script type="text/javascript" src="js/brand/controllers/brandControllers.js"></script>
+	<script type="text/javascript" src="js/brand/services/brandServices.js"></script>
+	<script src="js/home/controllers/homeCtrl.js" type="text/javascript"></script>
+	<script src="js/home/homeServices.js" type="text/javascript"></script>
+	<script src="js/home/controllers/itemPageCtrl.js" type="text/javascript"></script>
+	<script src="js/home/controllers/itemInfoCtrl.js" type="text/javascript"></script>
+</head>
+<body ng-app="girlApp">
+	<ion-nav-bar id="head"></ion-nav-bar>
+	<ion-tabs class="tabs-icon-top" id="footer" ng-if="canShowTab">
+		<ion-tab icon="ion-bag" title="柚子街"  ui-sref="home">
+			<ion-nav-view name="home"></ion-nav-view>
+		</ion-tab>
+		<ion-tab icon="ion-social-angular" title="品牌馆" ui-sref="brand">
+			<ion-nav-view name="brand"></ion-nav-view>
+		</ion-tab>
+		<ion-tab icon="ion-social-pinterest-outline" title="她她圈" ui-sref="friends">
+			<ion-nav-view name="friends"></ion-nav-view>
+		</ion-tab>
+		<ion-tab icon="ion-ios-cart-outline" title="购物车" ui-sref="shoppingCart">
+			<ion-nav-view name="shoppingCart"></ion-nav-view>
+
+		</ion-tab>
+		<ion-tab icon="ion-person" title="我" ui-sref="me">
+			<ion-nav-view name="me"></ion-nav-view>
+		</ion-tab>
+	</ion-tabs>
+</body>
+</html>

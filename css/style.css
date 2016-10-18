@@ -1,0 +1,9 @@
+#head ion-header-bar{
+	background-color:#F60D63;
+}
+#head ion-header-bar .title{
+	font:18px/44px "微软雅黑"; color:#fff;
+}
+#footer>div .tab-item-active{
+	color:#F60D63;
+}

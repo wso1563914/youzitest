@@ -1,0 +1,29 @@
+<ion-view class="item-info">
+	
+	<ion-nav-bar class="assertive">
+		<ion-nav-back-button></ion-nav-back-button>
+	</ion-nav-bar>
+	<ion-nav-title>商品详情</ion-nav-title>
+	
+	<ion-content >
+		
+		<!--商品轮播-->
+		<ion-slide-box class="itemInfo-banner">
+			<ion-slide ng-repeat="imgSrc in allImgSrc">
+				<img ng-src="{{imgSrc}}"/>
+			</ion-slide>
+		</ion-slide-box>
+		
+		<!--商品信息-->
+		<div class="itemInfo-news">
+			<div class="itemInfo-title">
+				{{itemTitles}}
+			</div>
+			<div class="itemInfo-price">
+				<p>￥{{discountPrice}}</p>
+				<p>价格<span>￥{{price}}</span></p>
+			</div>
+		</div>
+	</ion-content>
+	
+</ion-view>

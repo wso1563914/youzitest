@@ -1,0 +1,32 @@
+<!--下拉列表-->
+<ion-list class="friends-list">
+	<ion-item>
+		<div class="friends-top">
+			<p>我的她她圈</p>
+		</div>
+		<div class="friends-first">
+			<div class="left-box">
+				<i class="button icon ion-ios-plus-outline"></i>
+			</div>
+			<div class="info">
+				<p>加入更多圈子</p>
+				<p>发现更多精彩</p>
+			</div>
+		</div>
+	</ion-item>
+	<ion-item collection-repeat="list in nameList">
+			<div class="item-avatar-left myfriends">
+				<img ng-src="{{list.icon}}" />
+				<span>{{list.name}}</span>
+			</div>
+			<div>
+				<p>{{list.newest_topic_title}}</p>
+			</div>
+			<div>
+				<p class="color-p">{{list.introduction}}</p>
+			</div>
+			<div class="item-image" ng-repeat="img in imgList">
+				
+			</div>
+	</ion-item>
+</ion-list>

@@ -1,0 +1,31 @@
+<ion-view>
+	<ion-nav-title>{{title[tmpUrlKey]}}</ion-nav-title>
+	<ion-nav-buttons side="left">
+		<button class="button button-clear ion-ios-arrow-back me-back" ng-if="tmpUrl!='views/me/HomePage.html'" ng-click="navAction(7)"></button>
+	</ion-nav-buttons>
+	<ion-nav-buttons side="right">
+		<button class="button button-clear registerBut" ng-if="tmpUrl=='views/me/login.html'" ng-click="navAction(1)">注册</button>
+	</ion-nav-buttons>
+	<ion-content ng-if="tmpUrl=='views/me/order.html'" id="first-content">
+		<div class="order-title">
+			<span ng-repeat="item in ['未付款','已购买','购买记录']" ng-class="{'active':$index==orderWrapIdx}" ng-click="switchSlide($index)">{{item}}</span>
+		</div>
+	</ion-content>
+	<ion-content id='me' scrollbar-y='false'>
+		<!-- 下拉刷新 -->
+		<ion-refresher
+		    pulling-text="下拉刷新..."
+		    on-refresh="doRefresh()"
+		    spinner="ripple"
+		    ng-if="tmpUrl=='views/me/youBiBuy.html'">
+		</ion-refresher>
+		<div ng-include="tmpUrl" class="me-box"></div>
+	</ion-content>
+	<ion-content ng-if="tmpUrl=='views/me/order.html' && orderWrapIdx==0" id="last-content">
+		<label class="checkbox">
+		    <input type="checkbox" checked="" ng-click="allCheckBut()" ng-model="allCheck[0]">
+		</label>
+		全选
+		<span>付款</span>
+	</ion-content>
+</ion-view>

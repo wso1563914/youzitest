@@ -1,0 +1,22 @@
+<div class="scroll-box">
+	<ion-scroll class="morefriends-nav" delegate-handle="nav" scrollbar-y="false">
+		<div ng-repeat="name in navList" ng-click="navAction($index)" ng-class="{'active':$index == navIndex}">
+			<span>{{name.name}}</span>
+		</div>
+	</ion-scroll>
+	
+	<ion-scroll class="morefriends-list" delegate-handle="list" scrollbar-y="false">
+		<ion-list>
+			<ion-item ng-repeat="nameList in moreList" class="item-borderless more-box">
+				<div class="item-avatar-left morefriends">
+					<img ng-src="{{nameList.img}}" />
+				</div>
+				<div class="item-icon-right more-info">
+					<h3>{{nameList.name}}</h3>
+					<h3>{{nameList.title}}</h3>
+					<i class="icon ion-plus-circled"></i>
+				</div>
+			</ion-item>
+		</ion-list>
+	</ion-scroll>
+</div>

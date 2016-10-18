@@ -1,0 +1,27 @@
+<ion-list class="details homeAndDetails">
+	<ion-item class="item-icon-right">
+		我的头像
+		<span class="item-note icon ion-android-contact"></span>
+		<u class="icon ion-ios-arrow-right"></u>
+	</ion-item>
+	<ion-item class="item-icon-right" ng-click="changeNage()">
+		我的昵称
+		<span class="item-note">{{usernameList[user].nickname}}</span>
+		<u class="icon ion-ios-arrow-right"></u>
+	</ion-item>
+	<ion-item class="item-icon-right">
+		账号安全
+		<span class="item-note">美柚账号登录</span>
+		<u class="icon ion-ios-arrow-right"></u>
+	</ion-item>
+	<ion-item class="item-icon-right">
+		我的等级
+		<span class="item-note">LV0</span>
+		<u class="icon ion-ios-arrow-right"></u>
+	</ion-item>
+	<ion-item class="item-icon-right">
+		我的收货地址
+		<u class="icon ion-ios-arrow-right"></u>
+	</ion-item>
+</ion-list>
+<span class="logout" ng-click="logout()">退出登录</span>

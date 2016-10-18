@@ -1,0 +1,30 @@
+<!--模板页面-->
+	<ion-view>
+		<ion-nav-buttons side="left">
+			<button class="button icon ion-ios-email button-left"></button>
+		</ion-nav-buttons>
+		<ion-nav-title>
+			<div class="friends-title">
+				<span ng-repeat="name in ['我的圈','更多圈']" ng-class="{'active':selectIndex == $index}" ng-click="indexAction($index)">
+					{{name}}
+				</span>
+			</div>
+		</ion-nav-title>
+		<ion-nav-buttons side="right">
+			<button class="button icon ion-ios-search button-right"></button>
+		</ion-nav-buttons>
+		<div class="bar bar-subheader" ng-if="selectSearch == 1">
+			<div class="morefriends-title">
+				<i class="icon ion-search"><span>找圈子</span></i>
+			</div>
+		</div>
+		<ion-slide-box class="friends-box" show-pager="false" on-slide-changed="pageChange($index)">
+			<ion-slide ng-repeat="page in ['我的圈','更多圈']">
+				<ion-content id="firends" class="has-subheader has-tabs has-footer" has-bouncing="true" overflow-scroll="false">
+					<div class="parents" ng-include="urlArr[$index]">
+
+					</div>
+				</ion-content>
+			</ion-slide>
+		</ion-slide-box>
+	</ion-view>	

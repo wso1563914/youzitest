@@ -1,0 +1,29 @@
+
+<div class="youBiBuy-banner">
+	<img ng-src="{{ybbanner}}">
+</div>
+<ul class="yb-nav">
+	<li ng-repeat="item in ybNav">
+		<img ng-src="{{item.picture}}">
+		<p>{{item.name}}</p>
+	</li>
+</ul>
+<div class="yb-title"><i class="icon ion-android-favorite"></i>{{listTitle}}</div>
+<div class="yb-list">
+	<div ng-repeat="item in list" class="yb-item">
+		<img ng-src="{{item.picture}}">
+      	<h2><i>新品</i>{{item.name}}</h2>
+      	<span><i class="icon ion-social-yen"></i>{{item.original_price}}</span>
+	    <p>{{item.sttag_text}}</p>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+

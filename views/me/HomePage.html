@@ -1,0 +1,43 @@
+<ion-list class="homeAndDetails">
+	<ion-item class="item-icon-left item-icon-right" ng-click="navAction(0)" ng-if="!user">
+		<i class="icon ion-android-contact"></i>
+		<b>登录</b>
+		<span class="item-note">立刻登录</span>
+		<u class="icon ion-ios-arrow-right"></u>
+	</ion-item>
+	<ion-item class="item-icon-left item-icon-right" ng-click="navAction(8)" ng-if="user">
+		<i class="icon ion-android-contact"></i>
+		<div>
+			<span>{{usernameList[user].nickname}}</span>
+			<p>美柚账号登录</p>
+		</div>
+		<u class="icon ion-ios-arrow-right"></u>
+	</ion-item>
+	<ion-item class="item-icon-left item-icon-right"  ng-click="navAction(2)">
+		<i class="icon ion-navicon"></i>
+		我的订单
+		<u class="icon ion-ios-arrow-right"></u>
+	</ion-item>
+	<ion-item class="item-icon-left item-icon-right"  ng-click="navAction(3)">
+		<i class="icon ion-social-yen"></i>
+		我的柚子币
+		<span class="item-note">柚子币</span>
+		<u class="icon ion-ios-arrow-right"></u>
+	</ion-item>
+	<ion-item class="item-icon-left item-icon-right"  ng-click="navAction(4)">
+		<i class="icon ion-ios-chatbubble"></i>
+		我的话题
+		<u class="icon ion-ios-arrow-right"></u>
+	</ion-item>
+	<ion-item class="item-icon-left item-icon-right"  ng-click="navAction(5)">
+		<i class="icon ion-ios-help-empty"></i>
+		帮助与反馈
+		<u class="icon ion-ios-arrow-right"></u>
+	</ion-item>
+	<ion-item class="item-icon-left item-icon-right"  ng-click="navAction(6)">
+		<i class="icon ion-ios-more-outline"></i>
+		设置
+		<span class="item-note">淘宝账号</span>
+		<u class="icon ion-ios-arrow-right"></u>
+	</ion-item>
+</ion-list>

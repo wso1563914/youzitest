@@ -1,0 +1,23 @@
+<ion-modal-view>
+    <ion-header-bar class="cartmodal-header">
+        <div class="title">购物车</div>
+    </ion-header-bar>
+    <div class="scroll-content has-header has-footer">
+        <div class="modal-list">
+            <img ng-src="{{modalItem.goodsImgUrl}}">
+            <p class="modal-money"><span class="modal-money-m">{{modalItem.nowPrice | currency: "￥"}}</span><span class="modal-kucun">(库存222222件)</span></p>
+            <p class="modal-picColor">{{modalItem.color[modalItem.fenSelect] || '还未选颜色类型'}}</p>
+            <button class="modal-rm" ng-click="modalRmAction()">X</button>
+        </div>
+        <div class="modal-sub-t">
+            <p>颜色分类</p>
+            <div class="modal-fenlei">
+                <b class="modal-f" ng-repeat="fen in modalItem.color" ng-click="fenAction($index)" ng-class="{'fenActive': modalItem.fenSelect==$index}">{{fen}}</b>
+            </div>
+        </div>
+
+    </div>
+    <ion-footer-bar>
+        <button class="modal-back-button" ng-click="colorComfirm()">确定</button>
+    </ion-footer-bar>
+</ion-modal-view>
